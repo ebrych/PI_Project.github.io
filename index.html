@@ -7,10 +7,31 @@
     <title>PI1</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Sistema de Gestión basado en IPFS <br/> para la Optimización de la Seguridad de Documentos Digitales en CSF</h1>
+    <div> 
+      <table>
+        <tr>
+          <td><label style="font-size: 22px;color:#3498db">◩</label></td>
+          <td>Épica 1: Gestión de Roles y Perfiles</td>
+        </tr>
+        <tr>
+          <td><label style="font-size: 22px;color:#1abc9c">◩</label></td>
+          <td>Épica 2: Almacenamiento de Archivos</td>
+        </tr>
+        <tr>
+          <td><label style="font-size: 22px;color:#ff9f43">◩</label></td>
+          <td>Épica 3: Automatización del SFTP</td>
+        </tr>
+        <tr>
+          <td><label style="font-size: 22px;color:#b8e994">◩</label></td>
+          <td>Épica 4: Seguridad y Monitoreo</td>
+        </tr>
+      </table> 
+    </div>
     <svg id="gantt"></svg>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.6.1/frappe-gantt.min.js"></script>
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,25 +41,188 @@
             font-family: 'Open Sans', sans-serif;
         }
         .details-container{
-            width: 300px;
-            padding: 10px;
-            
+          width: 200px;
         }
+
+        .gantt .bar-milestone .bar {
+			      fill: rgb(204, 204, 204);
+	    	}
+        .bar:hover{
+            fill: rgb(204, 204, 204);
+        }
+
+
+        .gantt .bar-milestone .bar-progress {
+			      fill: lime;
+	    	}
+        .gantt .bar-EP01 .bar-progress {
+			      fill: #3498db;
+	    	}
+        .gantt .bar-EP02 .bar-progress {
+			      fill: #1abc9c;
+	    	}
+        .gantt .bar-EP03 .bar-progress {
+			      fill: #ff9f43;
+	    	}
+        .gantt .bar-EP04 .bar-progress {
+			      fill: #b8e994;
+	    	}
+
+        .bar-progress:hover{
+            fill: transparent !important;
+        }
+        
+
     </style>
     <script>
         var tasks = [
+          //EP01
             {
-                id: 'Task 1',
-                name: 'Redesign website',
-                start: '2023-10-15',
-                end: '2023-10-31',
-                progress: 80,
+                id: 'HU01',
+                name: 'HU01 Definir Roles y Permisos',
+                start: '2023-10-09',
+                end: '2023-10-15',
+                progress: 100,
                 dependencies: 'Task 2, Task 3',
                 reponsible:"Eber Baldarargo",
-                custom_class: 'tsk1' // optional
+                custom_class: "bar-EP01"
+            },
+            {
+                id: 'HU010',
+                name: 'HU010 Administrar Roles y Perfiles',
+                start: '2023-10-17',
+                end: '2023-10-30',
+                progress: 90,
+                dependencies: 'HU01',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP01"
+            },
+            {
+                id: 'HU02',
+                name: 'HU02 Almacenar y Optener Archivos en IPFS',
+                start: '2023-11-01',
+                end: '2023-11-19',
+                progress: 80,
+                dependencies: 'HU01',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP02"
+            },
+            {
+                id: 'HU03',
+                name: 'HU03 Buscar Archivos Eficientemente',
+                start: '2023-11-21',
+                end: '2023-12-02',
+                progress: 5,
+                dependencies: 'HU02',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP02"
+            },
+            {
+                id: 'HU04',
+                name: 'HU04 Encriptar Archivos con Datos Sensibles',
+                start: '2023-11-4',
+                end: '2023-11-16',
+                progress: 50,
+                dependencies: 'HU02',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP02"
+            },
+            //EP03
+            {
+                id: 'HU07',
+                name: 'HU07 Administrar Permisos de Conexión al SFTP',
+                start: '2024-01-15',
+                end: '2024-02-04',
+                progress: 1,
+                dependencies: 'HU02',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP03"
+            },
+            {
+                id: 'HU05',
+                name: 'HU05 Automatizar Reglas de Conexión SFTP',
+                start: '2024-02-01',
+                end: '2024-02-15',
+                progress: 1,
+                dependencies: 'HU07',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP03"
+            },
+            {
+                id: 'HU09',
+                name: 'HU09 Recibir Notificaciones de Cambios en las Reglas del SFTP',
+                start: '2024-02-07',
+                end: '2024-02-20',
+                progress: 1,
+                dependencies: 'HU05',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP03"
+            },
+            {
+                id: 'HU06',
+                name: 'HU06 Automatizar el Movimiento de Archivos al SFTP',
+                start: '2024-01-26',
+                end: '2024-02-08',
+                progress: 1,
+                dependencies: 'HU010',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP03"
+            },
+            
+           
+            {
+                id: 'HU08',
+                name: 'HU08 Exportación de Reglas del SFTP',
+                start: '2024-02-21',
+                end: '2024-03-04',
+                progress: 1,
+                dependencies: 'HU05',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP03"
+            },
+            //EP04
+            {
+                id: 'HU011',
+                name: 'HU11 Autenticar Usuarios con Active Directory',
+                start: '2024-03-07',
+                end: '2024-03-17',
+                progress: 1,
+                dependencies: '',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP04"
+            },
+            {
+                id: 'HU012',
+                name: 'HU012 Diseñar el Dashboard de Usuarios',
+                start: '2024-03-19',
+                end: '2024-03-27',
+                progress: 1,
+                dependencies: '',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP04"
+            },
+            {
+                id: 'HU014',
+                name: 'HU14 Establecer un Sistema de Logs y Monitoreo',
+                start: '2024-03-29',
+                end: '2024-04-12',
+                progress: 1,
+                dependencies: '',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP04"
+            },
+            {
+                id: 'HU013',
+                name: 'HU13 Crear Interfaces Gráficas',
+                start: '2024-04-14',
+                end: '2024-04-24',
+                progress: 1,
+                dependencies: 'HU02,HU011,HU08,HU05,HU012,HU014',
+                reponsible:"Eber Baldarargo",
+                custom_class: "bar-EP04"
             },
         ]
-
+ 
     var gantt = new Gantt("#gantt", tasks, {
     header_height: 50,
     column_width: 30,
@@ -50,7 +234,7 @@
     padding: 18,
     view_mode: 'Day',
     date_format: 'YYYY-MM-DD',
-    language: 'es', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu'
+    language: 'es', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu',
     custom_popup_html: function(task) {
         return `
           <div class="details-container">
